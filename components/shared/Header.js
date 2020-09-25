@@ -4,23 +4,23 @@ import Link from 'next/link'
 class Header extends React.Component {
   render() {
     return (
-      <>
+      <div className="customClassFromFile">
         <Link href="/">
-          <a>Home</a>
+          <a>Home </a>
         </Link>
         <Link href="/about">
-          <a>About</a>
+          <a>About </a>
         </Link>
         <Link href="/portfolios">
-          <a>Portfolios</a>
+          <a>Portfolios </a>
         </Link>
         <Link href="/blogs">
-          <a>Blogs</a>
+          <a>Blogs </a>
         </Link>
         <Link href="/cv">
-          <a>CV</a>
+          <a>CV </a>
         </Link>
-      </>
+      </div>
     )
   }
 }

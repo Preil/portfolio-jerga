@@ -3,7 +3,7 @@ import React from 'react';
 class Blogs extends React.Component {
   render() {
     return (
-      <h1>I am Blogs</h1>
+      <h1 style={{'color': 'navy'}}>I am Blogs</h1>
     )
   }
 }
