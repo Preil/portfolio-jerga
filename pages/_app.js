@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '../styles/main.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react'
 import App from 'next/app'
 import BaseLayout from '../components/layouts/BaseLayout'

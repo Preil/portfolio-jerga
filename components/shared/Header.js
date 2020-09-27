@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import {Button} from 'reactstrap'
 
 class Header extends React.Component {
   render() {
     return (
-      <div className="customClassFromFile">
-        <Link href="/">
-          <a>Home </a>
-        </Link>
+      <div>
+        <Button outline color="primary">
+          <Link href="/">Home</Link>
+        </Button>{' '}
         <Link href="/about">
           <a>About </a>
         </Link>
