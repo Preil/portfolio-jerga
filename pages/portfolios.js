@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
-import Link from 'next/link'
+// import Link from 'next/link'
+import {Link} from '../server/routes'
 
 class Portfolios extends React.Component {
 
@@ -25,9 +26,8 @@ class Portfolios extends React.Component {
           {posts.map(post =>
             <li key={post.id}>
               <Link
-                href={`/portfolios/[id]`}
-                as={`/portfolios/${post.id}`}>
-                <a>
+                route={`/portfolios/${post.id}`}>
+                <a key={post.id}>
                   {post.title}
                 </a>
               </Link>
