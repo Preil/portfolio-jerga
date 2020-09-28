@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import '../styles/main.scss'
+// import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/main.scss'
 import React from 'react'
 import App from 'next/app'
 import BaseLayout from '../components/layouts/BaseLayout'
