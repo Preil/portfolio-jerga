@@ -3,11 +3,17 @@ import Typed from 'react-typed';
 import {Button, Container, Row, Col} from 'reactstrap'
 
 class Index extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.roles = ['Developer', 'Tech Designer', 'Inventor','React.js']
+  }
+
   render() {
     return (
       <div className="main-section">
         <div className="background-image">
-          <img src="/images/background-index.png" />
+          <img src="/images/background-index.png"/>
         </div>
 
         <Container>
@@ -24,7 +30,7 @@ class Index extends React.Component {
                     </div>
                     <img className="image" src="/images/section-1.png"/>
                     <div className="shadow-custom">
-                      <div className="shadow-inner"> </div>
+                      <div className="shadow-inner"></div>
                     </div>
                   </div>
                 </div>
@@ -37,6 +43,17 @@ class Index extends React.Component {
                   Get informed, collaborate and discover projects I was working on through the years!
                 </h1>
               </div>
+              <Typed
+                loop
+                typeSpeed={100}
+                backSpeed={50}
+                strings={this.roles}
+                backDelay={500}
+                showCursor
+                className="self-typed"
+                cursorChar="_"
+              /><br/>
+
               <div className="hero-welcome-bio">
                 <h1>
                   Let's take a look on my work.
@@ -46,7 +63,7 @@ class Index extends React.Component {
           </Row>
         </Container>
       </div>
-    )
+    );
   }
 }
 
