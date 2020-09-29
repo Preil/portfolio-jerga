@@ -6,9 +6,9 @@ class BaseLayout extends Component {
   render() {
     const {className, children} = this.props
     return (
-      <div className="layout-container">
+      <div className="layout-container cover">
         <Header/>
-        <main className={`cover ${className}`}>
+        <main className={`${className}`}>
           <div className="wrapper">
             {children}
           </div>
