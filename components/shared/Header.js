@@ -18,9 +18,19 @@ const BsNavLink = (props) => {
       <a className="nav-link port-navbar-link">{title}</a>
     </Link>
   )
-
-
 }
+
+const Login = () => {
+  return (
+    <span className="nav-link port-navbar-link clickable">Login</span>
+  )
+}
+const Logout = () => {
+  return (
+    <span className="nav-link port-navbar-link clickable">Logout</span>
+  )
+}
+
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +60,13 @@ const Header = (props) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV"/>
             </NavItem>
+            <NavItem className="port-navbar-item">
+              <Login/>
+            </NavItem>
+            <NavItem className="port-navbar-item">
+              <Logout/>
+            </NavItem>
+
           </Nav>
         </Collapse>
       </Navbar>
