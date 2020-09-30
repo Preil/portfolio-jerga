@@ -1,9 +1,12 @@
 import React from 'react';
+import BasePage from '../components/BasePage'
 
 class Blogs extends React.Component {
   render() {
     return (
-      <h1 style={{'color': 'navy'}}>I am Blogs</h1>
+      <BasePage>
+        <h1 style={{'color': 'navy'}}>I am Blogs</h1>
+      </BasePage>
     )
   }
 }

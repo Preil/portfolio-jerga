@@ -1,6 +1,8 @@
 import React from 'react'
 import {withRouter} from 'next/router'
 import axios from 'axios'
+import BasePage from '../components/BasePage'
+
 
 class Portfolio extends React.Component {
 
@@ -18,12 +20,12 @@ class Portfolio extends React.Component {
   render() {
     const {portfolio} = this.props
     return (
-      <>
+      <BasePage>
         <h1>I'm portfolio page.</h1>
         <h2>{portfolio.title}</h2>
         <p> Body:{portfolio.body}</p>
         <p> ID: {portfolio.id}</p>
-      </>
+      </BasePage>
     )
   }
 }

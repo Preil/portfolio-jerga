@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios'
+import BasePage from '../components/BasePage'
+
 // import Link from 'next/link'
 import {Link} from '../server/routes'
 
@@ -20,7 +22,7 @@ class Portfolios extends React.Component {
   render() {
     const {posts} = this.props
     return (
-      <>
+      <BasePage>
         <h1>I am Portfolio</h1>
         <ul>
           {posts.map(post =>
@@ -34,7 +36,7 @@ class Portfolios extends React.Component {
             </li>
           )}
         </ul>
-      </>
+      </BasePage>
 
 
     )
