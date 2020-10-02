@@ -8,6 +8,7 @@
     "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.1.0",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",

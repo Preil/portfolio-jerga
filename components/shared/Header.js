@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Link from 'next/link'
+import {useAuth0} from '@auth0/auth0-react'
+
 import {
   Collapse,
   Navbar,
@@ -21,20 +23,23 @@ const BsNavLink = (props) => {
 }
 
 const Login = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
-    <span className="nav-link port-navbar-link clickable">Login</span>
+    <span onClick={() => loginWithRedirect()} className="nav-link port-navbar-link clickable">Login</span>
   )
 }
+
 const Logout = () => {
+  const { logout } = useAuth0()
   return (
-    <span className="nav-link port-navbar-link clickable">Logout</span>
+    <span onClick={() => logout({ returnTo: window.location.origin })} className="nav-link port-navbar-link clickable">Logout</span>
   )
 }
 
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const {user, isAuthenticated, getAccessTokenSilently} = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -60,13 +65,16 @@ const Header = (props) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV"/>
             </NavItem>
+            { !isAuthenticated &&
             <NavItem className="port-navbar-item">
               <Login/>
             </NavItem>
-            <NavItem className="port-navbar-item">
-              <Logout/>
-            </NavItem>
-
+            }
+            { isAuthenticated &&
+              <NavItem className="port-navbar-item">
+                <Logout/>
+              </NavItem>
+            }
           </Nav>
         </Collapse>
       </Navbar>
