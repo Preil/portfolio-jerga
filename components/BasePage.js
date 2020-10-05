@@ -1,9 +1,8 @@
 import {Container} from 'reactstrap'
 
 const BasePage = (props) => {
-  const {children} = props
-
   const {className} = props
+  const {children} = props
 
   // This is alternative BasePage.defaultProps
   // const className = props.className || '';
