@@ -61,12 +61,16 @@ const Header = (props) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV"/>
             </NavItem>
-            <NavItem>
-              <Login/>
-            </NavItem>
-            <NavItem>
-              <Logout/>
-            </NavItem>
+            { !auth0.isAuthenticated() &&
+              <NavItem>
+                <Login/>
+              </NavItem>
+            }
+            { auth0.isAuthenticated() &&
+              <NavItem>
+                <Logout/>
+              </NavItem>
+            }
           </Nav>
         </Collapse>
       </Navbar>
