@@ -4,10 +4,10 @@ import {Container} from 'reactstrap'
 
 class BaseLayout extends Component {
   render() {
-    const {className, children} = this.props
+    const {className, children, isAuthenticated} = this.props
     return (
       <div className="layout-container cover">
-        <Header/>
+        <Header isAuthenticated={isAuthenticated}/>
         <main className={`${className}`}>
           <div className="wrapper">
             {children}

@@ -35,8 +35,8 @@ const Logout = () => {
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
+  const {isAuthenticated} = props
 
   return (
     <div>
@@ -61,12 +61,12 @@ const Header = (props) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV"/>
             </NavItem>
-            { !auth0.isAuthenticated() &&
+            { !isAuthenticated &&
               <NavItem>
                 <Login/>
               </NavItem>
             }
-            { auth0.isAuthenticated() &&
+            { isAuthenticated &&
               <NavItem>
                 <Logout/>
               </NavItem>
