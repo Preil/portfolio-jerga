@@ -1,6 +1,7 @@
 import auth0 from 'auth0-js';
 import Cookies from 'js-cookie'
 import jwt from 'jsonwebtoken'
+import axios from 'axios'
 
 class Auth0 {
 
@@ -15,7 +16,6 @@ class Auth0 {
 
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
   }
 
@@ -61,39 +61,61 @@ class Auth0 {
     Cookies.set('expiresAt', expiresAt);
   }
 
-  isAuthenticated() {
-    // Check whether the current time is past the
-    // Access Token's expiration time
-    const expiresAt = Cookies.getJSON('expiresAt');
-    return new Date().getTime() < expiresAt;
+  // getting JW keys set from Auth0 domain
+  async getJWKS() {
+    const res = await axios.get('https://dev-preil.us.auth0.com/.well-known/jwks.json');
+    const jwks = res.data;
+    return jwks
   }
 
-
-  verifyToken(token) {
-    console.log(token)
+  // verifying provided token
+  async verifyToken(token) {
+    // if token not undefined
     if (token) {
-      const decodedToken = jwt.decode(token)
-      const expiresAt = decodedToken.exp * 1000
+      // decoding token with complete option - to access token header
+      const decodedToken = jwt.decode(token, {complete: true});
+      // getting keys from Auth0 domain
+      const jwks = await this.getJWKS();
+      // taking first key
+      const jwk = jwks.keys[0];
+      // BUILD CERTIFICATE
+      // getting x5c first element, it is long string
+      let cert = jwk.x5c[0];
+      // splitting the string into lines 64 characters long
+      cert = cert.match(/.{1,64}/g).join('\n');
+      // attaching begin line and end line t0 the certificate
+      cert = `-----BEGIN CERTIFICATE-----\n${cert}\n-----END CERTIFICATE-----\n`;
 
-      return (decodedToken && new Date().getTime() < expiresAt) ? decodedToken : undefined;
+      // comparing kid value from jwk and decodedToken
+      if (jwk.kid === decodedToken.header.kid) {
+        try {
+          //getting verified token from jwt API
+          const verifiedToken = jwt.verify(token, cert);
+          // getting expeiresAt time in seconds
+          const expiresAt = verifiedToken.exp * 1000;
+          // return true if verifiedToken was received and expiresAt time did not exceed
+          return (verifiedToken && new Date().getTime() < expiresAt) ? verifiedToken : undefined;
+        } catch (err) {
+          return undefined;
+        }
+      }
     }
     return undefined;
   }
 
 
-  clientAuth() {
+  async clientAuth() {
     const token = Cookies.getJSON('jwt');
-    const verifiedToken = this.verifyToken(token)
-
-    return token;
+    const verifiedToken = await this.verifyToken(token)
+    return verifiedToken;
   }
 
-  serverAuth(req) {
+  async serverAuth(req) {
     if (req.headers.cookie) {
       const tokenCookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('jwt='));
       if (!tokenCookie) return undefined;
       const token = tokenCookie.split('=')[1];
-      return this.verifyToken(token)
+      return await this.verifyToken(token)
     }
     return undefined;
   }
