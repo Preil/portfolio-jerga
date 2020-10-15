@@ -74,6 +74,7 @@ class Auth0 {
     if (token) {
       // decoding token with complete option - to access token header
       const decodedToken = jwt.decode(token, {complete: true});
+      if(!decodedToken) return undefined;
       // getting keys from Auth0 domain
       const jwks = await this.getJWKS();
       // taking first key
