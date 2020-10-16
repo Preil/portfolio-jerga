@@ -25,8 +25,6 @@ app.prepare().then(() => {
 
   server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
 
-    console.log('_______USER________');
-    console.log(req.user);
 
     return res.json(secretData);
   });
@@ -35,6 +33,11 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
+  server.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+      res.status(401).send({title: 'Unauthorized', detail: 'Unauthorized Access!'});
+    }
+  });
 
   const PORT = process.env.PORT || 3000;
   server.listen(PORT, (err) => {

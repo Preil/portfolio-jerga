@@ -1,18 +1,15 @@
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 
 //Middleware
-exports.checkJWT = function (req, res, next) {
-  const isValidToken = true;
-
-  // we can provide objects from middleware to route handler
-  req.user = {
-    name: 'Ilya',
-    lastName: 'Preil'
-  };
-
-  if (isValidToken) {
-    next();
-  } else {
-    return res.status(401).send({title: 'Not Authorized', detail: 'Please login in order to get data'})
-  }
-
-};
+exports.checkJWT = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 15,
+    jwksUri: 'https://dev-preil.us.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'pJ52z96HjOBVjaLTF2sHSf2wan4o96mh',
+  issuer: 'https://dev-preil.us.auth0.com/',
+  algorithms: ['RS256']
+});
