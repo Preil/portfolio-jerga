@@ -1,10 +1,19 @@
 import React from 'react'
 import BasePage from '../BasePage';
 
-export default function (Component) {
+export default function before (Component) {
   return class withAuth extends React.Component {
 
-    renderSecretPage(){
+    // this let run getInitialProps inside child component
+    static async getInitialProps(args) {
+      const pageProps = await Component.getInitialProps
+        && await Component.getInitialProps(args);
+
+      // don't forget to destruct props
+      return {...pageProps}
+    }
+
+    renderProtectedPage() {
       const {isAuthenticated} = this.props.auth;
 
       if (isAuthenticated) {
@@ -23,7 +32,7 @@ export default function (Component) {
 
     render() {
 
-      return this.renderSecretPage()
+      return this.renderProtectedPage()
     }
   }
 }
