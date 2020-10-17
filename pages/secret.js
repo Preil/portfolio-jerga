@@ -7,9 +7,9 @@ import {getSecretData} from '../actions'
 
 class Secret extends React.Component {
 
-  static getInitialProps() {
-    const superSecretValue = 'Super secret value'
-    return {superSecretValue}
+  static async getInitialProps({req}) {
+    const anotherSecretData = await getSecretData(req);
+    return {anotherSecretData}
   }
 
   constructor(props) {
@@ -46,14 +46,12 @@ class Secret extends React.Component {
 
   render() {
 
-    const {superSecretValue} = this.props;
-    console.log(this.state)
 
     return (
       <BasePage className="about-page">
         <h1>I am Secret page</h1>
-        <p>Secret content is here</p>
-        <p>{superSecretValue}</p>
+        <p>Secret data is here</p>
+
         {this.displaySecretData()}
       </BasePage>
     )
