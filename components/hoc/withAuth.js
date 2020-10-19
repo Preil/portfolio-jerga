@@ -5,7 +5,7 @@ const namespace = 'http://localhost:3000/';
 
 /******************
 
-The ownerRule was added to Auth0 rules:
+ The ownerRule was added to Auth0 rules:
 
  function (user, context, callback) {
   const namespace = 'http://localhost:3000';
@@ -17,7 +17,7 @@ The ownerRule was added to Auth0 rules:
   callback(null, user, context);
 }
 
-after it we got roles inside user object
+ after it we got roles inside user object
 
  http://localhost:3000/roles: "siteOwner" or "guest"
 
@@ -28,54 +28,62 @@ after it we got roles inside user object
  export default withAuth(Owner, 'siteOwner') - authorized for siteOwner user-role
 
 
-******************/
+ Improved syntax
 
-export default function before (Component, role) {
-  return class withAuth extends React.Component {
 
-    // this let run getInitialProps inside child component
-    static async getInitialProps(args) {
-      const pageProps = await Component.getInitialProps
-        && await Component.getInitialProps(args);
+ ******************/
 
-      // don't forget to destruct props
-      return {...pageProps}
-    }
+export default function (role) {
+  return function before (Component) {
+    return class withAuth extends React.Component {
 
-    renderProtectedPage() {
-      const {isAuthenticated, user} = this.props.auth;
-      const userRole = user && user[`${namespace}roles`]
-      let isAuthorized = false
+      // this let run getInitialProps inside child component
+      static async getInitialProps(args) {
+        const pageProps = await Component.getInitialProps
+          && await Component.getInitialProps(args);
 
-      if(role) {
-        if(userRole && userRole === role) { isAuthorized = true}
-      } else {
-        isAuthorized = false
+        // don't forget to destruct props
+        return {...pageProps}
       }
 
-      if(!isAuthenticated) {
-        return (
-          <BasePage className="about-page">
-            <p>You are not authenticated. Please Login to access this page.</p>
-          </BasePage>
-        )
-      } else if (!isAuthorized) {
-        return (
-          <BasePage className="about-page">
-            <p>You are not authorized. You don't have permission to visit this page.</p>
-          </BasePage>
-        )
-      } else {
-        return (
-          <Component {...this.props}/>
-        )
+      renderProtectedPage() {
+        const {isAuthenticated, user} = this.props.auth;
+        const userRole = user && user[`${namespace}roles`]
+        let isAuthorized = false
+
+        if (role) {
+          if (userRole && userRole === role) {
+            isAuthorized = true
+          }
+        } else {
+          isAuthorized = false
+        }
+
+        if (!isAuthenticated) {
+          return (
+            <BasePage className="about-page">
+              <p>You are not authenticated. Please Login to access this page.</p>
+            </BasePage>
+          )
+        } else if (!isAuthorized) {
+          return (
+            <BasePage className="about-page">
+              <p>You are not authorized. You don't have permission to visit this page.</p>
+            </BasePage>
+          )
+        } else {
+          return (
+            <Component {...this.props}/>
+          )
+        }
       }
-    }
 
 
-    render() {
+      render() {
 
-      return this.renderProtectedPage()
+        return this.renderProtectedPage()
+      }
     }
   }
 }
+
