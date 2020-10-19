@@ -13,7 +13,7 @@ class Secret extends React.Component {
   }
 
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       secretData: []
     }
