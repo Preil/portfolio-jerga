@@ -24,14 +24,18 @@ app.prepare().then(() => {
   const server = express();
 
   server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
-
-
     return res.json(secretData);
   });
+
+  server.get('/api/v1/onlysiteowner', authService.checkJWT, authService.checkRole('siteOwner'), (req, res) => {
+    return res.json(secretData);
+  });
+
 
   server.all('*', (req, res) => {
     return handle(req, res);
   });
+
 
   server.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
