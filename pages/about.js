@@ -4,17 +4,8 @@ import BasePage from '../components/BasePage'
 class About extends React.Component {
   render() {
     return (
-      <BasePage className="about-page">
-        <h1 className="customClass">I am About</h1>
-        {/*to make style global add "global" after jsx*/}
-        <style jsx >
-          {`
-            .customClass {
-              color: red;
-            }
+      <BasePage className="about-page" title="I'm about page">
 
-          `}
-        </style>
       </BasePage>
     )
   }

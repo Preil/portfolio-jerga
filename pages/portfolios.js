@@ -22,8 +22,8 @@ class Portfolios extends React.Component {
   render() {
     const {posts} = this.props
     return (
-      <BasePage>
-        <h1>I am Portfolio</h1>
+      <BasePage title="Portfolios">
+
         <ul>
           {posts.map(post =>
             <li key={post.id}>
