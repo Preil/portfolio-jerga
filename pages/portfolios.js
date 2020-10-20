@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios'
+import BaseLayout from "../components/layouts/BaseLayout";
+
 import BasePage from '../components/BasePage'
 
 // import Link from 'next/link'
@@ -22,22 +24,23 @@ class Portfolios extends React.Component {
   render() {
     const {posts} = this.props
     return (
-      <BasePage title="Portfolios">
+      <BaseLayout className="cover" {...this.props.auth}>
+        <BasePage title="Portfolios">
 
-        <ul>
-          {posts.map(post =>
-            <li key={post.id}>
-              <Link
-                route={`/portfolios/${post.id}`}>
-                <a key={post.id}>
-                  {post.title}
-                </a>
-              </Link>
-            </li>
-          )}
-        </ul>
-      </BasePage>
-
+          <ul>
+            {posts.map(post =>
+              <li key={post.id}>
+                <Link
+                  route={`/portfolios/${post.id}`}>
+                  <a key={post.id}>
+                    {post.title}
+                  </a>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </BasePage>
+      </BaseLayout>
 
     )
   }

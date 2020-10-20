@@ -4,7 +4,6 @@ import '../styles/main.scss'
 import React from 'react'
 import App from 'next/app'
 import auth0 from '../services/auth0'
-import BaseLayout from '../components/layouts/BaseLayout'
 
 class MyApp extends App {
 
@@ -24,9 +23,7 @@ class MyApp extends App {
   render() {
     const {Component, pageProps, auth} = this.props
     return (
-      <BaseLayout {...this.props.auth}>
         <Component {...pageProps} auth={auth}/>
-      </BaseLayout>
     )
   }
 }
