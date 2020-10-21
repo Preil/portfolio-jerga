@@ -36,11 +36,11 @@ const Logout = () => {
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const {isAuthenticated} = props
+  const {isAuthenticated, className, user} = props
 
   return (
     <div>
-      <Navbar className="port-navbar port-default" color="transparent" light expand="md">
+      <Navbar className={`port-navbar port-nav-base ${className}`} color="transparent" light expand="md">
         <NavbarBrand className="port-navbar-brand" href="/">Ilya Preil</NavbarBrand>
         <NavbarToggler onClick={toggle}/>
         <Collapse isOpen={isOpen} navbar>

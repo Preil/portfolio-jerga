@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/main.scss'
 import React from 'react'
-import App from 'next/app'
+import App, {Container} from 'next/app'
 import auth0 from '../services/auth0'
 
 class MyApp extends App {
@@ -23,7 +23,7 @@ class MyApp extends App {
   render() {
     const {Component, pageProps, auth} = this.props
     return (
-        <Component {...pageProps} auth={auth}/>
+      <Component {...pageProps} auth={auth}/>
     )
   }
 }
