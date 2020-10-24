@@ -16,19 +16,21 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Auth_Jerga" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="Server  side role authorization.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/portfolio-jerga.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/portfolioNew.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hoc/withAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/hoc/withAuth.js" afterDir="false" />
+    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="Simple form example added.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="layout-container&#9;null&#9;null&#10;next.config&#9;null&#9;null" />
+    <property name="ToolWindowTypeScript 3.8.2.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -105,7 +108,9 @@
       <workItem from="1602915088919" duration="142000" />
       <workItem from="1602915278216" duration="1491000" />
       <workItem from="1603089120870" duration="8000000" />
-      <workItem from="1603171602281" duration="26815000" />
+      <workItem from="1603171602281" duration="27673000" />
+      <workItem from="1603354199967" duration="5640000" />
+      <workItem from="1603432458031" duration="3275000" />
     </task>
     <task id="LOCAL-00001" summary="Base structure and layout created.">
       <created>1601016535785</created>
@@ -408,7 +413,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603282160364</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Simple form example added.">
+      <created>1603288140537</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1603288140537</updated>
+    </task>
+    <task id="LOCAL-00045" summary="More form input added.">
+      <created>1603395681214</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1603395681214</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +438,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Auth_Jerga" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -427,8 +458,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login/out buttons created." />
-    <MESSAGE value="Auth0 added. Handle Authentication and callback page added." />
     <MESSAGE value="HandleAuthentication was adjusted." />
     <MESSAGE value="Saving authResult (setting expiration time, JWT, user info) to cookies." />
     <MESSAGE value="Checking for authentication at client side and server side." />
@@ -452,7 +481,9 @@
     <MESSAGE value="Pages structure refactored. BaseLayout used at every pages." />
     <MESSAGE value="Header adjustment for index and other pages. New structure bug fix." />
     <MESSAGE value="Portfolios styles added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Portfolios styles added." />
+    <MESSAGE value="Simple form example added." />
+    <MESSAGE value="More form input added." />
+    <option name="LAST_COMMIT_MESSAGE" value="More form input added." />
   </component>
   <component name="WindowStateProjectService">
     <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1602914491250">
@@ -467,10 +498,10 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="811" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1602914530920" />
-    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603282159756">
+    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603395680521">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
-    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603282159756" />
+    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603395680521" />
     <state x="602" y="259" key="RollbackChangesDialog" timestamp="1603281335713">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
@@ -479,9 +510,9 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="827" y="251" key="Vcs.Push.Dialog.v2/0.0.1854.1080@0.0.1854.1080" timestamp="1603279233286" />
-    <state x="590" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603210158107">
+    <state x="590" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603532520580">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
-    <state x="590" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1854.1080@0.0.1854.1080" timestamp="1603210158107" />
+    <state x="590" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1854.1080@0.0.1854.1080" timestamp="1603532520580" />
   </component>
 </project>
