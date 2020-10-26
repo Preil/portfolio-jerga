@@ -7,7 +7,7 @@ import PortDate from "../form/PortDate";
 
 const validateInputs = (values) => {
   let errors = {};
-
+  console.log(values);
   Object.entries(values).forEach(([key, value]) => {
     if(!values[key]) {
       errors[key] = `Field ${key} is Required!`
