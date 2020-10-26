@@ -10,7 +10,7 @@ import moment from 'moment'
 const validateInputs = (values) => {
   let errors = {};
   Object.entries(values).forEach(([key, value]) => {
-    if(!values[key]) {
+    if(!values[key] && values[key]==='endDate') {
       errors[key] = `Field ${key} is Required!`
     }
   })
@@ -81,7 +81,7 @@ const PortfolioCreateForm = () => (
                  label="Start Date"
                  component={PortDate}/>
 
-          <Field
+          <Field canBeDisabled={true}
                  name="endDate"
                  label="End Date"
                  component={PortDate}/>

@@ -25,7 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="DatePicker for start and end date modified to provide dates with formik functions explicitly used.">
+    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="Date validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/form/PortDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/form/PortDate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" afterDir="false" />
@@ -112,14 +112,7 @@
       <workItem from="1603432458031" duration="4626000" />
       <workItem from="1603625379676" duration="2145000" />
       <workItem from="1603699563878" duration="139000" />
-      <workItem from="1603699751556" duration="12732000" />
-    </task>
-    <task id="LOCAL-00002" summary="Base structure and layout created.">
-      <created>1601016587619</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1601016587619</updated>
+      <workItem from="1603699751556" duration="14766000" />
     </task>
     <task id="LOCAL-00003" summary="Base structure and layout created.">
       <created>1601016617452</created>
@@ -457,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603723386990</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Date validation">
+      <created>1603725610527</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1603725610527</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +488,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Verifing function adjusted with signature verifying through cerificate creation&#10; with jwks. Verifing token using JWT API providing token and cericate." />
     <MESSAGE value="Bug fix, check if decoded token exists." />
     <MESSAGE value="Simple secret page example." />
     <MESSAGE value="High order component example." />
@@ -513,7 +512,8 @@
     <MESSAGE value="Fields validating part1. All field is required." />
     <MESSAGE value="DatePicker component example." />
     <MESSAGE value="DatePicker for start and end date modified to provide dates with formik functions explicitly used." />
-    <option name="LAST_COMMIT_MESSAGE" value="DatePicker for start and end date modified to provide dates with formik functions explicitly used." />
+    <MESSAGE value="Date validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Date validation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1603699346526">
@@ -528,10 +528,10 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="811" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1602914530920" />
-    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603723386467">
+    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603725609980">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
-    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603723386467" />
+    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603725609980" />
     <state x="602" y="259" key="RollbackChangesDialog" timestamp="1603281335713">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
