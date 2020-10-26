@@ -3,17 +3,25 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {Button, FormGroup, Label} from 'reactstrap';
 import PortImport from "../form/PortInput";
 import PortDate from "../form/PortDate";
+import moment from 'moment'
+
 
 
 const validateInputs = (values) => {
   let errors = {};
-  console.log(values);
   Object.entries(values).forEach(([key, value]) => {
     if(!values[key]) {
       errors[key] = `Field ${key} is Required!`
     }
   })
 
+  const startDate = values.startDate;
+  const endDate = values.endDate;
+
+
+  if(startDate && endDate && moment(endDate).isBefore(startDate)) {
+    errors.endDate = 'End Date cannot be before Start Date !!!'
+  }
 
   return errors;
 }
