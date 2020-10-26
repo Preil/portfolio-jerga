@@ -25,12 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="Simple form example added.">
+    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="PortfolioCreateForm using Formik example.">
+      <change afterPath="$PROJECT_DIR$/components/form/PortInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/portfolioNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portfolioNew.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +109,10 @@
       <workItem from="1603089120870" duration="8000000" />
       <workItem from="1603171602281" duration="27673000" />
       <workItem from="1603354199967" duration="5640000" />
-      <workItem from="1603432458031" duration="3275000" />
+      <workItem from="1603432458031" duration="4626000" />
+      <workItem from="1603625379676" duration="2145000" />
+      <workItem from="1603699563878" duration="139000" />
+      <workItem from="1603699751556" duration="1289000" />
     </task>
     <task id="LOCAL-00001" summary="Base structure and layout created.">
       <created>1601016535785</created>
@@ -427,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603395681214</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="PortfolioCreateForm using Formik example.">
+      <created>1603533603213</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1603533603213</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +467,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="HandleAuthentication was adjusted." />
     <MESSAGE value="Saving authResult (setting expiration time, JWT, user info) to cookies." />
     <MESSAGE value="Checking for authentication at client side and server side." />
     <MESSAGE value="Providing authentication information to header, and other components." />
@@ -483,13 +491,14 @@
     <MESSAGE value="Portfolios styles added." />
     <MESSAGE value="Simple form example added." />
     <MESSAGE value="More form input added." />
-    <option name="LAST_COMMIT_MESSAGE" value="More form input added." />
+    <MESSAGE value="PortfolioCreateForm using Formik example." />
+    <option name="LAST_COMMIT_MESSAGE" value="PortfolioCreateForm using Formik example." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1602914491250">
+    <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1603699346526">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
-    <state x="747" y="340" width="879" height="565" key="#Notifications/0.0.1854.1080@0.0.1854.1080" timestamp="1602914491250" />
+    <state x="747" y="340" width="879" height="565" key="#Notifications/0.0.1854.1080@0.0.1854.1080" timestamp="1603699346526" />
     <state x="695" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603274949978">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
@@ -498,10 +507,10 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="811" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1602914530920" />
-    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603395680521">
+    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603533602522">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
-    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603395680521" />
+    <state x="395" y="124" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603533602522" />
     <state x="602" y="259" key="RollbackChangesDialog" timestamp="1603281335713">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>

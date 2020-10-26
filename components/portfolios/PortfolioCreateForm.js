@@ -1,5 +1,7 @@
 import React from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Button, FormGroup, Label} from 'reactstrap';
+import PortImport from "../form/PortInput";
 
 const validateInputs = (validate) => {
   let errors = {};
@@ -37,46 +39,45 @@ const PortfolioCreateForm = () => (
     >
       {({isSubmitting}) => (
         <Form>
-          <div>
-            <label>Title </label>
-            <Field type="text" name="title"/>
-            <ErrorMessage name="title" component="div"/>
-          </div>
 
+          <Field type="text"
+                 name="title"
+                 label="Title"
+                 component={PortImport}/>
 
-          <div>
-            <label>Company </label>
-            <Field type="text" name="company"/>
-            <ErrorMessage name="company" component="div"/>
-          </div>
+          <Field type="text"
+                 name="company"
+                 label="Company"
+                 component={PortImport}/>
 
-          <div>
-            <label>Position </label>
-            <Field type="text" name="position"/>
-            <ErrorMessage name="position" component="div"/>
-          </div>
+          <Field type="text"
+                 name="location"
+                 label="Location"
+                 component={PortImport}/>
 
-          <div>
-            <label>Description </label>
-            <Field type="textarea" name="description" component="textarea"/>
-            <ErrorMessage name="description" component="div"/>
-          </div>
+          <Field type="text"
+                 name="position"
+                 label="Position"
+                 component={PortImport}/>
 
-          <div>
-            <label>Start date </label>
-            <Field type="text" name="startDate"/>
-            <ErrorMessage name="startDate" component="div"/>
-          </div>
+          <Field type="textarea"
+                 name="description"
+                 label="Description"
+                 component={PortImport}/>
 
-          <div>
-            <label>End date </label>
-            <Field type="text" name="endDate"/>
-            <ErrorMessage name="endDate" component="div"/>
-          </div>
+          <Field type="text"
+                 name="startDate"
+                 label="Start Date"
+                 component={PortImport}/>
 
-          <button type="submit" disabled={isSubmitting}>
+          <Field type="text"
+                 name="endDate"
+                 label="End Date"
+                 component={PortImport}/>
+
+          <Button type="submit" disabled={isSubmitting}>
             Create
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>
