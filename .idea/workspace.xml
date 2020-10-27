@@ -25,10 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="Enable EndDate be null, for still working case.">
+    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="onSubmit handler moved to portfolioNew component.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/portfolios/PortfolioCreateForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/portfolioNew.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/portfolioNew.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +113,7 @@
       <workItem from="1603432458031" duration="4626000" />
       <workItem from="1603625379676" duration="2145000" />
       <workItem from="1603699563878" duration="139000" />
-      <workItem from="1603699751556" duration="17428000" />
-    </task>
-    <task id="LOCAL-00004" summary="Different styles examples.">
-      <created>1601045757623</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1601045757623</updated>
+      <workItem from="1603699751556" duration="20595000" />
     </task>
     <task id="LOCAL-00005" summary="Getting dummy data for portfolio from jsonplaceholder using axios.">
       <created>1601048568966</created>
@@ -457,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603728307942</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="onSubmit handler moved to portfolioNew component.">
+      <created>1603798898350</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1603798898350</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +489,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Simple secret page example." />
     <MESSAGE value="High order component example." />
     <MESSAGE value="GetIninitialProps inside high order component to execute getInitialProps in child Component." />
     <MESSAGE value="Secure server end point part1. Displaying information on secrete page from the server." />
@@ -513,7 +513,8 @@
     <MESSAGE value="DatePicker for start and end date modified to provide dates with formik functions explicitly used." />
     <MESSAGE value="Date validation" />
     <MESSAGE value="Enable EndDate be null, for still working case." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enable EndDate be null, for still working case." />
+    <MESSAGE value="onSubmit handler moved to portfolioNew component." />
+    <option name="LAST_COMMIT_MESSAGE" value="onSubmit handler moved to portfolioNew component." />
   </component>
   <component name="WindowStateProjectService">
     <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1603699346526">
@@ -528,10 +529,11 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="811" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1602914530920" />
-    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603728307419">
-      <screen x="0" y="0" width="1854" height="1080" />
+    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603798897896">
+      <screen x="0" y="0" width="1855" height="1080" />
     </state>
     <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603728307419" />
+    <state x="218" y="211" key="CommitChangelistDialog2/0.0.1855.1080@0.0.1855.1080" timestamp="1603798897896" />
     <state x="602" y="259" key="RollbackChangesDialog" timestamp="1603281335713">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>

@@ -1,6 +1,7 @@
 const express = require('express');
 const next = require('next');
 const routes = require('./routes')
+const mongoose = require('mongoose')
 
 // Services
 const authService = require('./services/auth');
@@ -19,6 +20,11 @@ const secretData = [
     description: 'Me secrets'
   }
 ];
+
+
+mongoose.connect('mongodb+srv://***********@cluster0.czlib.mongodb.net/portfolios_db?retryWrites=true&w=majority', {useNewUrlParser: true})
+  .then(()=>{console.log('Db connected!')})
+  .catch((err)=>{console.error(err)})
 
 app.prepare().then(() => {
   const server = express();
