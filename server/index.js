@@ -2,6 +2,7 @@ const express = require('express');
 const next = require('next');
 const routes = require('./routes')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
 
 // Services
 const authService = require('./services/auth');
@@ -10,6 +11,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = routes.getRequestHandler(app);
 const config = require('./config')
+
+const Book = require('./models/book')
 
 const secretData = [
   {
@@ -24,11 +27,32 @@ const secretData = [
 
 
 mongoose.connect(config.DB_URI, {useNewUrlParser: true})
-  .then(()=>{console.log('Db connected!')})
-  .catch((err)=>{console.error(err)})
+  .then(() => {
+    console.log('Db connected!')
+  })
+  .catch((err) => {
+    console.error(err)
+  })
 
 app.prepare().then(() => {
   const server = express();
+  server.use(bodyParser.json());
+
+  server.post('/api/v1/books', (req, res) => {
+    const bookData = req.body;
+
+    const book = new Book(bookData)
+
+    book.save((err, createdBook) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
+
+      return res.json(createdBook);
+    });
+
+  });
+
 
   server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
     return res.json(secretData);
@@ -42,6 +66,8 @@ app.prepare().then(() => {
   server.all('*', (req, res) => {
     return handle(req, res);
   });
+
+
 
 
   server.use(function (err, req, res, next) {

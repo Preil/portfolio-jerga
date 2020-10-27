@@ -25,9 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="onSubmit handler moved to portfolioNew component.">
+    <list default="true" id="b82ee10c-5559-4c07-be6b-1326211e4950" name="Default" comment="MongoDb config in separate folder.">
+      <change afterPath="$PROJECT_DIR$/server/models/book.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
     </list>
@@ -55,24 +55,25 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="ToolWindowTypeScript 3.8.2.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/config" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IT\Projects\portfolio-jerga\pages" />
-      <recent name="D:\IT\Projects\portfolio-jerga\styles\trash" />
-      <recent name="D:\IT\Projects\portfolio-jerga\components\layouts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IT\Projects\portfolio-jerga\styles" />
       <recent name="D:\IT\Projects\portfolio-jerga\styles\shared" />
       <recent name="D:\IT\Projects\portfolio-jerga\public\fonts" />
       <recent name="D:\IT\Projects\portfolio-jerga\public\font" />
       <recent name="D:\IT\Projects\portfolio-jerga\server" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IT\Projects\portfolio-jerga\server\config" />
+      <recent name="D:\IT\Projects\portfolio-jerga\pages" />
+      <recent name="D:\IT\Projects\portfolio-jerga\styles\trash" />
+      <recent name="D:\IT\Projects\portfolio-jerga\components\layouts" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -113,21 +114,7 @@
       <workItem from="1603432458031" duration="4626000" />
       <workItem from="1603625379676" duration="2145000" />
       <workItem from="1603699563878" duration="139000" />
-      <workItem from="1603699751556" duration="20595000" />
-    </task>
-    <task id="LOCAL-00005" summary="Getting dummy data for portfolio from jsonplaceholder using axios.">
-      <created>1601048568966</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1601048568966</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Portfolio page created with fetching data by id.">
-      <created>1601050537446</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1601050537446</updated>
+      <workItem from="1603699751556" duration="24910000" />
     </task>
     <task id="LOCAL-00007" summary="Configuring custom express server.">
       <created>1601182890652</created>
@@ -458,7 +445,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603798898350</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="MongoDb connection added.">
+      <created>1603805623984</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1603805623984</updated>
+    </task>
+    <task id="LOCAL-00055" summary="MongoDb config in separate folder.">
+      <created>1603809917737</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1603809917737</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,8 +490,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="High order component example." />
-    <MESSAGE value="GetIninitialProps inside high order component to execute getInitialProps in child Component." />
     <MESSAGE value="Secure server end point part1. Displaying information on secrete page from the server." />
     <MESSAGE value="Secure server end point part2. Middleware prepared to check JWT." />
     <MESSAGE value="Secure server end point part2. Example of passing object from middleware next to route handler." />
@@ -514,7 +513,9 @@
     <MESSAGE value="Date validation" />
     <MESSAGE value="Enable EndDate be null, for still working case." />
     <MESSAGE value="onSubmit handler moved to portfolioNew component." />
-    <option name="LAST_COMMIT_MESSAGE" value="onSubmit handler moved to portfolioNew component." />
+    <MESSAGE value="MongoDb connection added." />
+    <MESSAGE value="MongoDb config in separate folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="MongoDb config in separate folder." />
   </component>
   <component name="WindowStateProjectService">
     <state x="747" y="340" width="879" height="565" key="#Notifications" timestamp="1603699346526">
@@ -529,19 +530,20 @@
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="811" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1602914530920" />
-    <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603798897896">
+    <state x="792" y="178" width="1177" height="865" key="CommitChangelistDialog2" timestamp="1603809917077">
       <screen x="0" y="0" width="1855" height="1080" />
     </state>
     <state x="218" y="211" width="1177" height="865" key="CommitChangelistDialog2/0.0.1854.1080@0.0.1854.1080" timestamp="1603728307419" />
-    <state x="218" y="211" key="CommitChangelistDialog2/0.0.1855.1080@0.0.1855.1080" timestamp="1603798897896" />
+    <state x="792" y="178" key="CommitChangelistDialog2/0.0.1855.1080@0.0.1855.1080" timestamp="1603809917077" />
     <state x="602" y="259" key="RollbackChangesDialog" timestamp="1603281335713">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
     <state x="602" y="259" key="RollbackChangesDialog/0.0.1854.1080@0.0.1854.1080" timestamp="1603281335713" />
-    <state x="827" y="251" key="Vcs.Push.Dialog.v2" timestamp="1603279233286">
-      <screen x="0" y="0" width="1854" height="1080" />
+    <state x="827" y="251" key="Vcs.Push.Dialog.v2" timestamp="1603809650845">
+      <screen x="0" y="0" width="1855" height="1080" />
     </state>
     <state x="827" y="251" key="Vcs.Push.Dialog.v2/0.0.1854.1080@0.0.1854.1080" timestamp="1603279233286" />
+    <state x="827" y="251" key="Vcs.Push.Dialog.v2/0.0.1855.1080@0.0.1855.1080" timestamp="1603809650845" />
     <state x="590" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603532520580">
       <screen x="0" y="0" width="1854" height="1080" />
     </state>
