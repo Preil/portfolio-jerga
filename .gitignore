@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 /.idea/
 /server/config/dev.js
+/server/config/prod.js
