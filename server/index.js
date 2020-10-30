@@ -4,6 +4,7 @@ const routes = require('./routes')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const bookRoutes = require('./routes/book')
+const portfoliosRoutes = require('./routes/portfolio')
 
 // Services
 const authService = require('./services/auth');
@@ -13,7 +14,6 @@ const app = next({dev});
 const handle = routes.getRequestHandler(app);
 const config = require('./config')
 
-const Book = require('./models/book')
 
 const secretData = [
   {
@@ -40,6 +40,7 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
 
   server.use('/api/v1/books', bookRoutes);
+  server.use('/api/v1/portfolios', portfoliosRoutes);
 
   server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
     return res.json(secretData);

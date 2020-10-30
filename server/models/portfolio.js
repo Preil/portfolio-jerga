@@ -10,7 +10,7 @@ const setStringType = (maxLength) => {
 }
 
 const portfolioSchema = new Schema({
-  userID: setStringType(512),
+  userId: setStringType(512),
   title: setStringType(256),
   company: setStringType(256),
   location: setStringType(128),
