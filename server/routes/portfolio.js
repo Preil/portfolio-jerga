@@ -7,8 +7,7 @@ const authService = require('../services/auth');
 router.post('', authService.checkJWT, authService.checkRole('siteOwner'),
   portfolioCtrl.saveNewPortfolio);
 
-router.get('', authService.checkJWT, authService.checkRole('siteOwner'),
-  portfolioCtrl.getPortfolios);
+router.get('', portfolioCtrl.getPortfolios);
 
 router.patch('/:id', authService.checkJWT, authService.checkRole('siteOwner'),
   portfolioCtrl.updatePortfolio)
