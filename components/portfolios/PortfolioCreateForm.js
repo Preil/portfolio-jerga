@@ -10,7 +10,7 @@ import moment from 'moment'
 const validateInputs = (values) => {
   let errors = {};
   Object.entries(values).forEach(([key, value]) => {
-    if(!values[key] && values[key]==='endDate') {
+    if(!values[key] && key!=='endDate') {
       errors[key] = `Field ${key} is Required!`
     }
   })

@@ -23,13 +23,13 @@ export default class PortDate extends React.Component {
     setFieldTouched(name, touched, true);
   }
 
-  handleChange(date) {
+async  handleChange(date) {
 
-
-    this.setState({
+    await this.setState({
       dateValue: date
     });
     this.setFieldValueAndTouched(date, true)
+
   }
 
   toggleDate(date) {
