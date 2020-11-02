@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Col, Row, Card, CardHeader, CardText, CardBody, CardTitle} from 'reactstrap';
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from '../components/BasePage'
+import PortfolioCard from "../components/portfolios/PortfolioCard";
 
 import {Router} from '../routes'
 
@@ -43,27 +44,16 @@ class Portfolios extends React.Component {
     return portfolios.map((portfolio, index) => {
       return (
         <Col md="4" key={index}>
-          <React.Fragment>
-              <span>
-                <Card className="portfolio-card">
-                  <CardHeader className="portfolio-card-header">{portfolio.position}</CardHeader>
-                  <CardBody>
-                    <p className="portfolio-card-city">{portfolio.location} </p>
-                    <CardTitle className="portfolio-card-title">{portfolio.title}</CardTitle>
-                    <CardText className="portfolio-card-text">
-                      {portfolio.company} <br/>
-                      {portfolio.description}</CardText>
-                    <div className="readMore">more...</div>
-                    {isAuthenticated && isSiteOwner && <>
-                      <Button onClick={() => Router.pushRoute(`/portfolios/${portfolio._id}/edit`)}
-                              color="warning">Edit</Button>{' '}
-                      <Button onClick={()=>{this.displayDeleteWarning(portfolio._id)}} color="danger">Delete</Button>
-                    </>
-                    }
-                  </CardBody>
-                </Card>
-              </span>
-          </React.Fragment>
+          <PortfolioCard portfolio={portfolio}>
+            {isAuthenticated && isSiteOwner && <>
+              <Button onClick={() => Router.pushRoute(`/portfolios/${portfolio._id}/edit`)}
+                      color="warning">Edit</Button>{' '}
+              <Button onClick={() => {
+                this.displayDeleteWarning(portfolio._id)
+              }} color="danger">Delete</Button>
+            </>
+            }
+          </PortfolioCard>
         </Col>
       )
     })
