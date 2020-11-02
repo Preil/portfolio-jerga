@@ -2,15 +2,29 @@ import React from 'react';
 import BasePage from '../components/BasePage'
 import BaseLayout from "../components/layouts/BaseLayout";
 import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
-
-import {createPortfolio} from '../actions';
+import {withRouter} from 'next/router'
+import {createPortfolio, getPortfolioById} from '../actions';
 
 import {Row, Col} from 'reactstrap'
 
 import withAuth from '../components/hoc/withAuth';
 import {Router} from '../routes'
 
-class PortfolioNew extends React.Component {
+class PortfolioEdit extends React.Component {
+
+  static async getInitialProps({query}){
+    let portfolio = {};
+
+    try {
+      portfolio = await getPortfolioById(query.id)
+      console.log(portfolio);
+    } catch (error) {
+
+      return {portfolio};
+    }
+
+  }
+
   constructor(props) {
     super(props);
 
@@ -22,18 +36,18 @@ class PortfolioNew extends React.Component {
   }
 
  savePortfolio(portfolioData, {setSubmitting}) {
-   setSubmitting(true);
-    createPortfolio(portfolioData)
-      .then(portfolio => {
-        this.setState({error: undefined})
-        Router.pushRoute('/portfolios')
-        setSubmitting(false);
-      })
-      .catch(err => {
-        setSubmitting(false);
-        const error = err.message || 'Server Error!'
-        this.setState({error: err.message})
-      })
+   // setSubmitting(true);
+   //  createPortfolio(portfolioData)
+   //    .then(portfolio => {
+   //      this.setState({error: undefined})
+   //      Router.pushRoute('/portfolios')
+   //      setSubmitting(false);
+   //    })
+   //    .catch(err => {
+   //      setSubmitting(false);
+   //      const error = err.message || 'Server Error!'
+   //      this.setState({error: err.message})
+   //    })
   }
 
   render() {
@@ -54,4 +68,4 @@ class PortfolioNew extends React.Component {
   }
 }
 
-export default withAuth('siteOwner')(PortfolioNew);
+export default withRouter(withAuth('siteOwner')(PortfolioEdit));

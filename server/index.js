@@ -1,6 +1,6 @@
 const express = require('express');
 const next = require('next');
-const routes = require('./routes')
+const routes = require('../routes')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const bookRoutes = require('./routes/book')
