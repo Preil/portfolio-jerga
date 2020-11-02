@@ -5,7 +5,7 @@ import BasePage from '../components/BasePage'
 
 import {Router} from '../routes'
 
-import {getPortfolios} from '../actions'
+import {getPortfolios, deletePortfolio} from '../actions'
 
 class Portfolios extends React.Component {
 
@@ -19,6 +19,22 @@ class Portfolios extends React.Component {
 
     return {portfolios}
   }
+
+  displayDeleteWarning(portfolioId) {
+    const isConfirm = confirm('Proceed deleting...');
+    if (isConfirm) {
+      this.deletePortfolio(portfolioId)
+    }
+  }
+
+  deletePortfolio(portfolioId){
+    deletePortfolio(portfolioId)
+      .then(() => {
+        Router.pushRoute('/portfolios')
+      })
+      .catch(err => console.error(err));
+  }
+
 
   renderPosts(portfolios) {
 
@@ -41,7 +57,7 @@ class Portfolios extends React.Component {
                     {isAuthenticated && isSiteOwner && <>
                       <Button onClick={() => Router.pushRoute(`/portfolios/${portfolio._id}/edit`)}
                               color="warning">Edit</Button>{' '}
-                      <Button color="danger">Delete</Button>
+                      <Button onClick={()=>{this.displayDeleteWarning(portfolio._id)}} color="danger">Delete</Button>
                     </>
                     }
                   </CardBody>

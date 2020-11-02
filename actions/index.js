@@ -22,7 +22,7 @@ export const getSecretData = async (req) => {
     .then(response => response.data);
 };
 
-const rejectError = (resError) =>{
+const rejectError = (resError) => {
   let error = {};
 
   if (resError && resError.response && resError.response.data) {
@@ -53,4 +53,9 @@ export const updatePortfolio = async (portfolioData) => {
   return await axiosInstance.patch(`/portfolios/${portfolioData._id}`, portfolioData, setAuthHeader())
     .then(response => response.data)
     .catch(error => rejectError(error))
+}
+
+export const deletePortfolio = (portfolioId) => {
+  return axiosInstance.delete(`/portfolios/${portfolioId}`, setAuthHeader())
+    .then(response => response.data)
 }
