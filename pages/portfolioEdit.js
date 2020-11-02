@@ -3,7 +3,7 @@ import BasePage from '../components/BasePage'
 import BaseLayout from "../components/layouts/BaseLayout";
 import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
 import {withRouter} from 'next/router'
-import {createPortfolio, getPortfolioById} from '../actions';
+import {updatePortfolio, getPortfolioById} from '../actions';
 
 import {Row, Col} from 'reactstrap'
 
@@ -30,22 +30,22 @@ class PortfolioEdit extends React.Component {
       error: undefined
     }
 
-    this.savePortfolio = this.savePortfolio.bind(this)
+    this.updatePortfolio = this.updatePortfolio.bind(this)
   }
 
- savePortfolio(portfolioData, {setSubmitting}) {
-   // setSubmitting(true);
-   //  createPortfolio(portfolioData)
-   //    .then(portfolio => {
-   //      this.setState({error: undefined})
-   //      Router.pushRoute('/portfolios')
-   //      setSubmitting(false);
-   //    })
-   //    .catch(err => {
-   //      setSubmitting(false);
-   //      const error = err.message || 'Server Error!'
-   //      this.setState({error: err.message})
-   //    })
+ updatePortfolio(portfolioData, {setSubmitting}) {
+   setSubmitting(true);
+    updatePortfolio(portfolioData)
+      .then(portfolio => {
+        this.setState({error: undefined})
+        Router.pushRoute('/portfolios')
+        setSubmitting(false);
+      })
+      .catch(err => {
+        setSubmitting(false);
+        const error = err.message || 'Server Error!'
+        this.setState({error: err.message})
+      })
   }
 
   render() {
@@ -55,10 +55,13 @@ class PortfolioEdit extends React.Component {
 
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage className="portfolio-create-page" title="Create new portfolio">
+        <BasePage className="portfolio-create-page" title="Update portfolio">
           <Row>
             <Col md="6">
-              <PortfolioCreateForm initialValues={portfolio} error={error} onSubmit={this.savePortfolio}/>
+              <PortfolioCreateForm
+                initialValues={portfolio}
+                error={error}
+                onSubmit={this.updatePortfolio}/>
             </Col>
           </Row>
         </BasePage>

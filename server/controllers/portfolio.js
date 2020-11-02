@@ -11,14 +11,17 @@ exports.getPortfolios = (req, res) => {
 };
 
 exports.getPortfolioById = (req, res) => {
+  console.log("Get portfolio by ID")
   const portfolioId = req.params.id;
-  Portfolio.findById(portfolioId, (err, foundPortfolio) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
+  Portfolio.findById(portfolioId)
+    .select('-__v')
+    .exec((err, foundPortfolio) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
     return res.json(foundPortfolio)
   })
-}
+};
 
 exports.saveNewPortfolio = (req, res) => {
   const portfolioData = req.body;
@@ -40,20 +43,24 @@ exports.saveNewPortfolio = (req, res) => {
 exports.updatePortfolio = (req, res) => {
   const portfolioId = req.params.id;
   const portfolioData = req.body;
+  debugger
 
-  Portfolio.findById(portfolioId, (err, foundPortfolio) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    foundPortfolio.set(portfolioData);
-    foundPortfolio.save((err, savedPortfolio) => {
-      if (err) {
+  Portfolio.findById(portfolioId,(err, foundPortfolio) => {
+      if (err || foundPortfolio==null) {
         return res.status(422).send(err);
       }
-      return res.json(savedPortfolio);
+      console.log(foundPortfolio)
+      foundPortfolio.set(portfolioData);
+      foundPortfolio.save((err, savedPortfolio) => {
+        if (err) {
+          return res.status(422).send(err);
+        }
+        return res.json(savedPortfolio);
+      })
     })
-  })
 };
+
+
 
 exports.deletePortfolio = (req, res) => {
   const portfolioId = req.params.id;
