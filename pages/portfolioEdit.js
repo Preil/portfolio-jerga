@@ -17,12 +17,10 @@ class PortfolioEdit extends React.Component {
 
     try {
       portfolio = await getPortfolioById(query.id)
-      console.log(portfolio);
     } catch (error) {
-
-      return {portfolio};
+      console.error(error);
     }
-
+    return {portfolio}
   }
 
   constructor(props) {
@@ -53,13 +51,14 @@ class PortfolioEdit extends React.Component {
   render() {
 
     const {error} = this.state;
+    const {portfolio} = this.props;
 
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="portfolio-create-page" title="Create new portfolio">
           <Row>
             <Col md="6">
-              <PortfolioCreateForm error={error} onSubmit={this.savePortfolio}/>
+              <PortfolioCreateForm initialValues={portfolio} error={error} onSubmit={this.savePortfolio}/>
             </Col>
           </Row>
         </BasePage>

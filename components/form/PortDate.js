@@ -9,8 +9,10 @@ export default class PortDate extends React.Component {
   constructor(props) {
     super(props);
 
+    const dateValue = props.initialDate ? moment(props.initialDate).toDate() : moment().toDate()
+
     this.state = {
-      dateValue: moment().toDate(),
+      dateValue,
       isHidden: false
     };
     this.handleChange = this.handleChange.bind(this);
