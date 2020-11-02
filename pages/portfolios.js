@@ -1,7 +1,9 @@
 import React from 'react';
-import {Col, Row, Card, CardHeader, CardText, CardBody, CardTitle} from 'reactstrap';
+import {Button, Col, Row, Card, CardHeader, CardText, CardBody, CardTitle} from 'reactstrap';
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from '../components/BasePage'
+
+import {Router} from '../routes'
 
 import {getPortfolios} from '../actions'
 
@@ -22,8 +24,8 @@ class Portfolios extends React.Component {
     return portfolios.map((portfolio, index) => {
       return (
         <Col md="4" key={index}>
-          <React.Fragment >
-              <span >
+          <React.Fragment>
+              <span>
                 <Card className="portfolio-card">
                   <CardHeader className="portfolio-card-header">{portfolio.position}</CardHeader>
                   <CardBody>
@@ -33,6 +35,8 @@ class Portfolios extends React.Component {
                       {portfolio.company} <br/>
                       {portfolio.description}</CardText>
                     <div className="readMore">more...</div>
+                    <Button onClick={()=>Router.pushRoute(`/portfolios/${portfolio._id}/edit`)} color="warning">Edit</Button>{' '}
+                    <Button color="danger">Delete</Button>
                   </CardBody>
                 </Card>
               </span>
@@ -48,6 +52,10 @@ class Portfolios extends React.Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="portfolio-page" title="Portfolios">
+          <Button onClick={() => Router.pushRoute('/portfolioNew')}
+                  className="create-port-btn"
+                  color="success">Create portfolio
+          </Button>
           <Row>
             {this.renderPosts(portfolios)}
           </Row>
