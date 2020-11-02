@@ -5,6 +5,8 @@ import React from 'react'
 import App, {Container} from 'next/app'
 import auth0 from '../services/auth0'
 
+const namespace = 'http://localhost:3000'
+
 class MyApp extends App {
 
   static async getInitialProps({Component, router, ctx}) {
@@ -15,7 +17,10 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    const auth = {user, isAuthenticated: !!user};
+
+    const isSiteOwner = user && user[namespace+'/roles']==='siteOwner'
+
+    const auth = {user, isAuthenticated: !!user, isSiteOwner};
 
     return {pageProps, auth}
   }
