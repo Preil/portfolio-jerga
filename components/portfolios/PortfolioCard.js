@@ -5,16 +5,25 @@ import PortfolioCardDetail from "./PortfolioCardDetail";
 
 export default class PortfolioCard extends React.Component {
   constructor(props) {
-    super()
+    super(props);
+    this.state = {
+      isOpen: false
+    }
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({isOpen: !this.state.isOpen});
   }
 
   render() {
     const {portfolio, children} = this.props;
     return (
 
-      <span>
-        <PortfolioCardDetail />
-        <Card className="portfolio-card">
+      <span >
+        <PortfolioCardDetail toggle={this.toggle} isOpen={this.state.isOpen} portfolio={portfolio}/>
+        <Card className="portfolio-card" onClick={this.toggle}>
           <CardHeader className="portfolio-card-header">{portfolio.position}</CardHeader>
             <CardBody>
               <p className="portfolio-card-city">{portfolio.location} </p>

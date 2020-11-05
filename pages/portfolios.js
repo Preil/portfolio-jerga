@@ -21,7 +21,14 @@ class Portfolios extends React.Component {
     return {portfolios}
   }
 
-  displayDeleteWarning(portfolioId) {
+  navigateToEdit(portfolioId,e){
+    e.stopPropagation();
+    Router.pushRoute(`/portfolios/${portfolioId}/edit`)
+  }
+
+
+  displayDeleteWarning(portfolioId, e) {
+    e.stopPropagation();
     const isConfirm = confirm('Proceed deleting...');
     if (isConfirm) {
       this.deletePortfolio(portfolioId)
@@ -46,10 +53,10 @@ class Portfolios extends React.Component {
         <Col md="4" key={index}>
           <PortfolioCard portfolio={portfolio}>
             {isAuthenticated && isSiteOwner && <>
-              <Button onClick={() => Router.pushRoute(`/portfolios/${portfolio._id}/edit`)}
+              <Button onClick={(e) => this.navigateToEdit(portfolio._id, e)}
                       color="warning">Edit</Button>{' '}
-              <Button onClick={() => {
-                this.displayDeleteWarning(portfolio._id)
+              <Button onClick={(e) => {
+                this.displayDeleteWarning(portfolio._id, e)
               }} color="danger">Delete</Button>
             </>
             }
