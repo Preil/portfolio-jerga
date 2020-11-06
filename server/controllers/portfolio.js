@@ -2,12 +2,14 @@ const Portfolio = require('../models/portfolio');
 
 
 exports.getPortfolios = (req, res) => {
-  Portfolio.find({}, (err, allPortfolios) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    return res.json(allPortfolios);
-  })
+  Portfolio.find({})
+    .sort({'startDate': 1})
+    .exec((err, allPortfolios) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
+      return res.json(allPortfolios);
+    })
 };
 
 exports.getPortfolioById = (req, res) => {
@@ -19,8 +21,8 @@ exports.getPortfolioById = (req, res) => {
       if (err) {
         return res.status(422).send(err);
       }
-    return res.json(foundPortfolio)
-  })
+      return res.json(foundPortfolio)
+    })
 };
 
 exports.saveNewPortfolio = (req, res) => {
@@ -45,21 +47,20 @@ exports.updatePortfolio = (req, res) => {
   const portfolioData = req.body;
   debugger
 
-  Portfolio.findById(portfolioId,(err, foundPortfolio) => {
-      if (err || foundPortfolio==null) {
+  Portfolio.findById(portfolioId, (err, foundPortfolio) => {
+    if (err || foundPortfolio == null) {
+      return res.status(422).send(err);
+    }
+    console.log(foundPortfolio)
+    foundPortfolio.set(portfolioData);
+    foundPortfolio.save((err, savedPortfolio) => {
+      if (err) {
         return res.status(422).send(err);
       }
-      console.log(foundPortfolio)
-      foundPortfolio.set(portfolioData);
-      foundPortfolio.save((err, savedPortfolio) => {
-        if (err) {
-          return res.status(422).send(err);
-        }
-        return res.json(savedPortfolio);
-      })
+      return res.json(savedPortfolio);
     })
+  })
 };
-
 
 
 exports.deletePortfolio = (req, res) => {

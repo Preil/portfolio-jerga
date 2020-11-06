@@ -9,6 +9,7 @@ import {Row, Col} from 'reactstrap'
 
 import withAuth from '../components/hoc/withAuth';
 import {Router} from '../routes'
+import moment from 'moment'
 
 const INITIAL_VALUES = {
   title: '',
@@ -16,8 +17,8 @@ const INITIAL_VALUES = {
   location: '',
   position: '',
   description: '',
-  startDate: '',
-  endDate: ''
+  startDate: moment().toDate(),
+  endDate: moment().toDate()
 }
 
 class PortfolioNew extends React.Component {

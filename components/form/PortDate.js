@@ -10,10 +10,11 @@ export default class PortDate extends React.Component {
     super(props);
 
     const dateValue = props.initialDate ? moment(props.initialDate).toDate() : moment().toDate()
+    const isHidden = props.initialDate ? false : true
 
     this.state = {
       dateValue,
-      isHidden: false
+      isHidden
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -60,12 +61,12 @@ async  handleChange(date) {
               dropdownMode="select"
             />
           }
-          {canBeDisabled && !isHidden && <Button onClick={()=>this.toggleDate(null)}>Still working here</Button>}
+          {canBeDisabled && !isHidden && <Button style={{marginLeft:'2em'}} onClick={()=>this.toggleDate(null)}>Still working here</Button>}
 
           {
             canBeDisabled && isHidden &&
               <>
-                <span>Still working here</span>
+                <span style={{marginRight: '2em' }}>Still working here</span>
                 <Button onClick={()=>this.toggleDate(dateValue)}>Enter end date</Button>
               </>
           }
