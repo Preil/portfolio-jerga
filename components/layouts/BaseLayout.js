@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from '../shared/Header'
+import Head from 'next/head'
 
 class BaseLayout extends Component {
   render() {
@@ -7,6 +8,11 @@ class BaseLayout extends Component {
     const headerType = this.props.headerType || 'default'
 
     return (
+      <>
+        <Head>
+          <title>Ilya Preil</title>
+          <script src="https://kit.fontawesome.com/c76001fe9f.js" crossOrigin="anonymous"/>
+        </Head>
         <div className={`layout-container`}>
           <Header className={`port-nav-${headerType}`} isAuthenticated={isAuthenticated} user={user}/>
           <main className={`cover ${className}`}>
@@ -15,6 +21,7 @@ class BaseLayout extends Component {
             </div>
           </main>
         </div>
+      </>
     );
   }
 }
