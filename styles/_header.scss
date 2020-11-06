@@ -1,9 +1,11 @@
 
 // HEADER
 .port-navbar.port-nav-base {
+  position: absolute;
   width: 100%;
-  z-index: 15;
+  z-index: 150;
   padding: 30px;
+  background-color: transparent;
 
   .port-navbar {
     &-brand {

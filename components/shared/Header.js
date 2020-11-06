@@ -39,7 +39,6 @@ const Header = (props) => {
   const {isAuthenticated, className, user} = props
 
   return (
-    <div>
       <Navbar className={`port-navbar port-nav-base ${className}`} color="transparent" light expand="md">
         <NavbarBrand className="port-navbar-brand" href="/">Ilya Preil</NavbarBrand>
         <NavbarToggler onClick={toggle}/>
@@ -74,7 +73,7 @@ const Header = (props) => {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+
   );
 }
 

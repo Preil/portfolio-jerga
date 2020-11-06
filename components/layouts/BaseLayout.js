@@ -7,16 +7,14 @@ class BaseLayout extends Component {
     const headerType = this.props.headerType || 'default'
 
     return (
-      <>
-        <div className={`layout-container ${className}`}>
+        <div className={`layout-container`}>
           <Header className={`port-nav-${headerType}`} isAuthenticated={isAuthenticated} user={user}/>
-          <main className={``}>
+          <main className={`cover ${className}`}>
             <div className="wrapper">
               {children}
             </div>
           </main>
         </div>
-      </>
     );
   }
 }
