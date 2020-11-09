@@ -42,12 +42,27 @@ export default class SlateEditor extends React.Component {
     this.setState({value})
   }
 
+  onKeyDown = (event, editor, next)=>{
+    if(event.key !== '&') return next()
+
+    //Prevent the ampersand character from being inserted.
+    event.preventDefault();
+
+    //Change the value by inserting 'and' at the cursor's position.
+    editor.insertText('and')
+    return true;
+  }
+
   render() {
     const {isLoaded} = this.state;
     return (
       <>
         {
-          isLoaded && <Editor value={this.state.value} onChange={this.onChange}/>
+          isLoaded &&
+          <Editor value={this.state.value}
+                  onChange={this.onChange}
+                  onKeyDown={this.onKeyDown}
+          />
         }
       </>
     );
