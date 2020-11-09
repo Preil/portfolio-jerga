@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "formik": "^2.2.1",
+    "immutable": "^4.0.0-rc.12",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.10.1",
@@ -30,7 +31,9 @@
     "react-dom": "16.13.1",
     "react-typed": "^1.2.0",
     "reactstrap": "^8.6.0",
-    "sass": "^1.26.11"
+    "sass": "^1.26.11",
+    "slate": "^0.44.6",
+    "slate-react": "^0.21.12"
   },
   "devDependencies": {
     "optimize-css-assets-webpack-plugin": "^5.0.4"
