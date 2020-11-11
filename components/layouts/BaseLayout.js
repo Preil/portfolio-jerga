@@ -12,6 +12,8 @@ class BaseLayout extends Component {
         <Head>
           <title>Ilya Preil</title>
           <script src="https://kit.fontawesome.com/c76001fe9f.js" crossOrigin="anonymous"/>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                rel="stylesheet"/>
         </Head>
         <div className={`layout-container`}>
           <Header className={`port-nav-${headerType}`} isAuthenticated={isAuthenticated} user={user}/>
