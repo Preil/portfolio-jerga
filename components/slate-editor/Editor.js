@@ -2,7 +2,7 @@ import React from 'react';
 import HoverMenu from './HoverMenu'
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
-import {renderMark} from "./renderers";
+import {renderMark, renderNode} from "./renderers";
 import {initialValue} from "./initial-value";
 
 
@@ -63,6 +63,7 @@ export default class SlateEditor extends React.Component {
                   value={this.state.value}
                   onChange={this.onChange}
                   renderMark={renderMark}
+                  renderNode={renderNode}
                   renderEditor={this.renderEditor}
           />
 
