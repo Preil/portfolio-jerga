@@ -7,8 +7,8 @@ const blogSchema = new Schema({
   title: {type: String, required: true},
   subTitle: {type: String, required: true},
   story: {type: String, required: true},
-  createdAt: {type: Date, required: true},
-  updatedAt: {type: Date, required: true},
+  createdAt: {type: Date, default: Date.now},
+  updatedAt: {type: Date, default: Date.now},
   status: {type: String, default: 'draft'},
   author: {type: String, required: true}
 });
