@@ -17,3 +17,16 @@ exports.createBlog = (req, res) => {
   });
 
 };
+
+exports.getBlogById = (req, res) => {
+  console.log("Getting blog by ID")
+  const blogId = req.params.id;
+  Blog.findById(blogId)
+    .select('-__v')
+    .exec((err, foundBlog) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
+      return res.json(foundBlog)
+    })
+};
