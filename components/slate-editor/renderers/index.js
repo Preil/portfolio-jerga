@@ -1,4 +1,4 @@
-import {Button, Icon} from '../components'
+import {Button, Icon, BlockQuote} from '../components'
 import {is} from "immutable";
 
 const DEFAULT_NODE = 'paragraph'
@@ -99,7 +99,7 @@ export const renderNode = (props, editor, next) => {
     case 'paragraph':
       return <p {...attributes}>{children}</p>
     case 'block-quote':
-      return <blockquote {...attributes}>{children}</blockquote>
+      return <BlockQuote {...attributes}>{children}</BlockQuote>
     case 'bulleted-list':
       return <ul {...attributes}>{children}</ul>
     case 'heading-one':
